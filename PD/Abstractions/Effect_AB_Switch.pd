@@ -1,4 +1,4 @@
-#N canvas 926 474 711 573 10;
+#N canvas 1264 144 575 573 10;
 #X obj 76 -14 inlet~;
 #X obj 76 369 outlet~;
 #X obj 76 200 *~;
@@ -23,9 +23,8 @@
 #X text 329 282 <-- Audio On/Off;
 #X obj 92 121 pack 0 25;
 #X obj 222 105 pack 0 25;
-#X connect 0 0 2 0;
 #X connect 0 0 3 0;
-#X connect 2 0 1 0;
+#X connect 0 0 1 0;
 #X connect 3 0 18 0;
 #X connect 4 0 3 1;
 #X connect 5 0 2 1;
