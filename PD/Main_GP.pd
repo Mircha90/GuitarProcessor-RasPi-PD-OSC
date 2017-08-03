@@ -29,17 +29,15 @@
 #X connect 12 0 3 0;
 #X connect 13 0 4 0;
 #X restore 87 -27 pd OSC;
-#N canvas 329 14 474 435 Fuzz 0;
+#N canvas 555 204 474 435 Fuzz 1;
 #X obj 27 53 cnv 15 114 70 empty empty Fuzz 8 8 0 14 -243521 -66577
 0;
 #X obj 212 12 inlet~;
 #X obj 212 372 outlet~;
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
-#X obj 258 204 Simple_Fuzz;
-#X obj 212 97 Effect_AB_Switch;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_volume_snd sf_volume_rcv Gain
 -2 -6 0 8 -262144 -1 -1 5400 1;
@@ -50,32 +48,33 @@
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
 -6 0 8 -2097 -1 -1 5700 1;
 #X obj 335 267 r sf_level_snd;
-#X obj 212 325 Wet_Dry_Mix;
-#X connect 1 0 6 0;
-#X connect 4 0 8 0;
-#X connect 5 0 15 1;
-#X connect 6 0 15 0;
-#X connect 6 1 5 0;
-#X connect 6 2 5 3;
-#X connect 8 0 6 1;
-#X connect 11 0 5 1;
-#X connect 12 0 5 2;
-#X connect 14 0 15 2;
+#X obj 212 97 Effect_AB_Switch~;
+#X obj 258 204 Simple_Fuzz~;
+#X obj 212 325 Wet_Dry_Mix~;
+#X connect 1 0 13 0;
+#X connect 4 0 6 0;
+#X connect 6 0 13 1;
+#X connect 9 0 14 1;
+#X connect 10 0 14 2;
+#X connect 12 0 15 2;
+#X connect 13 0 15 0;
+#X connect 13 1 14 0;
+#X connect 13 2 14 3;
+#X connect 14 0 15 1;
 #X connect 15 0 2 0;
 #X connect 15 1 2 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 97 pd Fuzz;
 #X obj 101 53 adc~ 1;
-#N canvas 323 512 484 435 Delay 0;
+#N canvas 726 375 484 435 Delay 0;
 #X obj 27 53 cnv 15 114 70 empty empty Delay 8 8 0 14 -3446 -66577
 0;
 #X obj 212 12 inlet~;
 #X obj 212 372 outlet~;
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
-#X obj 212 97 Effect_AB_Switch;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
 -6 0 8 -2097 -1 -1 2000 1;
@@ -83,23 +82,24 @@
 -2 -6 0 8 -262144 -1 -1 3500 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
 -2 -6 0 8 -262144 -1 -1 2100 1;
-#X obj 259 207 Simple_Delay;
 #X obj 332 124 r sd_delay_snd;
 #X obj 332 153 r sd_fback_snd;
-#X obj 212 326 Wet_Dry_Mix;
 #X obj 332 286 r sd_level_snd;
-#X connect 1 0 5 0;
-#X connect 4 0 7 0;
-#X connect 5 0 14 0;
-#X connect 5 1 11 0;
-#X connect 5 2 11 3;
-#X connect 7 0 5 1;
-#X connect 11 0 14 1;
-#X connect 12 0 11 1;
-#X connect 13 0 11 2;
-#X connect 14 0 2 0;
-#X connect 14 1 2 0;
-#X connect 15 0 14 2;
+#X obj 212 97 Effect_AB_Switch~;
+#X obj 259 207 Simple_Delay~;
+#X obj 212 326 Wet_Dry_Mix~;
+#X connect 1 0 13 0;
+#X connect 4 0 6 0;
+#X connect 6 0 13 1;
+#X connect 10 0 14 1;
+#X connect 11 0 14 2;
+#X connect 12 0 15 2;
+#X connect 13 0 15 0;
+#X connect 13 1 14 0;
+#X connect 13 2 14 3;
+#X connect 14 0 15 1;
+#X connect 15 0 2 0;
+#X connect 15 1 2 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 200 pd Delay;
 #X connect 3 0 5 0;
