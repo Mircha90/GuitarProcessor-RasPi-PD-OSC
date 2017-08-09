@@ -1,9 +1,9 @@
-#N canvas 644 249 994 611 10;
+#N canvas 654 61 1073 775 10;
 #X obj 58 383 route 0;
 #X obj 58 295 *~ 5;
 #X obj 105 143 hsl 300 15 -1 1 0 0 empty cursor_tuner empty -2 -8 0
 10 -262144 -1 -1 0 1;
-#X obj 80 583 s cursor_tuner;
+#X obj 66 664 s cursor_tuner;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array Tuner_ticks 12 float 3 black black;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0;
@@ -11,7 +11,7 @@
 #X restore 105 131 graph;
 #X floatatom 237 158 7 0 0 0 - - -, f 7;
 #X obj 168 243 loadbang;
-#X obj 373 101 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 373 101 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 475 220 switch~;
 #X obj 402 17 loadbang;
@@ -47,16 +47,14 @@
 #X msg 881 161 Bb;
 #X msg 912 160 B;
 #X obj 633 215 symbol;
-#X obj 289 106 cnv 15 65 20 empty Note_name E 5 10 0 14 -4034 -1 0
-;
+#X obj 289 106 cnv 15 65 20 empty Note_name Note 5 10 0 14 -4034 -1
+0;
 #X msg 633 235 \; Note_name label \$1 \;;
 #X msg 556 162 C-sharp;
 #X msg 728 161 F-sharp;
 #X obj 458 530 IdentifyNote;
-#X obj 257 583 s midi_to_letter;
+#X obj 335 661 s midi_to_letter;
 #X obj 566 60 r midi_to_letter;
-#X msg 168 264 \; Tuner_ticks xticks 6 1 1 \; Note_name label Note
-\;;
 #X text 684 61 Get the letter corresponding to target note;
 #X text 631 271 Display it in the GUI;
 #X text 223 361 Analyse the frequency of;
@@ -74,20 +72,22 @@ tuning);
 #X obj 301 530 IdentifyNote;
 #X obj 380 530 IdentifyNote;
 #X obj 58 196 inlet~;
+#X msg 178 290 \; Tuner_ticks xticks 6 1 1 \; Note_name label Note
+\;;
 #X connect 0 0 27 0;
 #X connect 1 0 28 0;
 #X connect 2 0 5 0;
-#X connect 6 0 49 0;
+#X connect 6 0 64 0;
 #X connect 6 0 24 0;
 #X connect 6 0 26 0;
 #X connect 7 0 8 0;
 #X connect 9 0 10 0;
 #X connect 10 0 7 0;
-#X connect 18 0 59 1;
-#X connect 19 0 60 1;
-#X connect 20 0 61 1;
-#X connect 21 0 62 1;
-#X connect 22 0 63 1;
+#X connect 18 0 58 1;
+#X connect 19 0 59 1;
+#X connect 20 0 60 1;
+#X connect 21 0 61 1;
+#X connect 22 0 62 1;
 #X connect 23 0 46 1;
 #X connect 24 0 25 0;
 #X connect 25 0 12 0;
@@ -98,11 +98,11 @@ tuning);
 #X connect 25 5 17 0;
 #X connect 26 0 28 0;
 #X connect 27 0 46 0;
+#X connect 27 0 58 0;
 #X connect 27 0 59 0;
 #X connect 27 0 60 0;
 #X connect 27 0 61 0;
 #X connect 27 0 62 0;
-#X connect 27 0 63 0;
 #X connect 28 0 0 0;
 #X connect 29 0 41 0;
 #X connect 30 0 41 0;
@@ -133,7 +133,9 @@ tuning);
 #X connect 46 0 3 0;
 #X connect 46 1 47 0;
 #X connect 48 0 33 0;
-#X connect 56 0 25 0;
+#X connect 55 0 25 0;
+#X connect 58 0 3 0;
+#X connect 58 1 47 0;
 #X connect 59 0 3 0;
 #X connect 59 1 47 0;
 #X connect 60 0 3 0;
@@ -142,7 +144,5 @@ tuning);
 #X connect 61 1 47 0;
 #X connect 62 0 3 0;
 #X connect 62 1 47 0;
-#X connect 63 0 3 0;
-#X connect 63 1 47 0;
-#X connect 64 0 1 0;
+#X connect 63 0 1 0;
 #X coords 0 -1 1 1 310 75 2 100 100;
