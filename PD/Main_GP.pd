@@ -1,5 +1,5 @@
-#N canvas 140 178 643 619 10;
-#X obj 101 502 dac~, f 5;
+#N canvas 622 11 643 948 10;
+#X obj 101 641 dac~, f 5;
 #X obj 2 -27 pddp/dsp;
 #N canvas 420 205 878 566 OSC 0;
 #X obj 111 52 unpackOSC;
@@ -37,16 +37,16 @@
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_volume_snd sf_volume_rcv Gain
--2 -6 0 8 -262144 -1 -1 5600 1;
+-2 -6 0 8 -262144 -1 -1 8000 1;
 #X obj 113 93 mknob 25 100 1 0.2 0 1 sf_fuzz_snd sf_fuzz_rcv Fuzz -2
 -6 0 8 -262144 -1 -1 6800 1;
 #X obj 335 126 r sf_volume_snd;
 #X obj 335 155 r sf_fuzz_snd;
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
--6 0 8 -2097 -1 -1 2600 1;
+-6 0 8 -2097 -1 -1 1300 1;
 #X obj 335 267 r sf_level_snd;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 258 204 Simple_Fuzz~;
@@ -75,10 +75,10 @@
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
--6 0 8 -2097 -1 -1 2300 1;
+-6 0 8 -2097 -1 -1 1800 1;
 #X obj 71 92 mknob 25 100 1 800 0 1 sd_delay_snd sd_delay_rcv D.Time
 -2 -6 0 8 -262144 -1 -1 1100 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
@@ -103,14 +103,14 @@
 #X connect 15 0 2 0;
 #X connect 15 1 2 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 292 pd Delay;
+#X restore 101 369 pd Delay;
 #X obj 131 107 tuner;
 #X text 447 115 <-- Switch audio on to tune up.;
 #X msg 225 31 40 45 50 55 59 64;
 #X text 336 30 <-- Standard tuning (E \, A \, D \, G \, B \, E);
 #X text 336 51 <-- Open-G tuning (D \, G \, D \, G \, B \, D);
 #X msg 225 53 38 43 50 55 59 62;
-#X text 522 537 Igor Mircic 2017;
+#X text 515 803 Igor Mircic 2017;
 #N canvas 827 161 515 589 Reverb 0;
 #X obj 260 192 Reverb~;
 #X obj 27 53 cnv 15 114 70 empty empty Reverb 7 8 0 14 -118080 -66577
@@ -147,8 +147,49 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 15 0 0 2;
 #X connect 16 0 12 2;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 385 pd Reverb;
-#X connect 3 0 5 0;
+#X restore 101 454 pd Reverb;
+#N canvas 357 224 515 612 Phaser 0;
+#X obj 27 53 cnv 15 149 70 empty empty Phaser 7 8 0 14 -118080 -66577
+0;
+#X obj 211 12 inlet~;
+#X obj 211 372 outlet~;
+#X text 129 265 Dry path -->;
+#X obj 272 12 inlet;
+#X text 261 265 <-- Wet path;
+#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 92 mknob 25 100 0 1 0 1 ph_level_snd ph_level_rcv Level -2
+-6 0 8 -2097 -1 -1 6600 1;
+#X obj 68 92 mknob 25 100 0 10 0 1 ph_speed_snd ph_speed_rcv Speed
+-2 -6 0 8 -262144 -1 -1 3100 1;
+#X obj 107 92 mknob 25 100 0 3 0 1 ph_depth_snd ph_depth_rcv Depth
+-2 -6 0 8 -262144 -1 -1 3900 1;
+#X obj 211 97 Effect_AB_Switch~;
+#X obj 211 326 Wet_Dry_Mix~;
+#X text 327 422 Igor Mircic 2017;
+#X obj 147 92 mknob 25 100 -0.9 0.9 0 1 ph_fback_snd ph_fback_rcv F.Back
+-2 -6 0 8 -262144 -1 -1 3900 1;
+#X obj 331 286 r ph_level_snd;
+#X obj 331 124 r ph_speed_snd;
+#X obj 331 148 r ph_depth_snd;
+#X obj 331 172 r ph_fback_snd;
+#X obj 260 226 Phaser~;
+#X connect 1 0 10 0;
+#X connect 4 0 6 0;
+#X connect 6 0 10 1;
+#X connect 10 0 11 0;
+#X connect 10 1 18 0;
+#X connect 10 2 18 4;
+#X connect 11 0 2 0;
+#X connect 11 1 2 0;
+#X connect 14 0 11 2;
+#X connect 15 0 18 1;
+#X connect 16 0 18 2;
+#X connect 17 0 18 3;
+#X connect 18 0 11 1;
+#X coords 0 -1 1 1 155 76 1 24 50;
+#X restore 101 284 pd Phaser;
+#X connect 3 0 14 0;
 #X connect 4 0 6 0;
 #X connect 4 0 3 0;
 #X connect 5 0 13 0;
@@ -156,3 +197,4 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 11 0 6 1;
 #X connect 13 0 0 0;
 #X connect 13 0 0 1;
+#X connect 14 0 5 0;
