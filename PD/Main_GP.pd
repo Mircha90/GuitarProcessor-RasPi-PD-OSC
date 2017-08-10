@@ -1,5 +1,5 @@
-#N canvas 622 11 643 948 10;
-#X obj 101 641 dac~, f 5;
+#N canvas -7 4 643 948 10;
+#X obj 101 624 dac~, f 5;
 #X obj 2 -27 pddp/dsp;
 #N canvas 420 205 878 566 OSC 0;
 #X obj 111 52 unpackOSC;
@@ -40,13 +40,13 @@
 #X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_volume_snd sf_volume_rcv Gain
--2 -6 0 8 -262144 -1 -1 8000 1;
+-2 -6 0 8 -262144 -1 -1 4800 1;
 #X obj 113 93 mknob 25 100 1 0.2 0 1 sf_fuzz_snd sf_fuzz_rcv Fuzz -2
--6 0 8 -262144 -1 -1 6800 1;
+-6 0 8 -262144 -1 -1 6700 1;
 #X obj 335 126 r sf_volume_snd;
 #X obj 335 155 r sf_fuzz_snd;
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
--6 0 8 -2097 -1 -1 1300 1;
+-6 0 8 -2097 -1 -1 3400 1;
 #X obj 335 267 r sf_level_snd;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 258 204 Simple_Fuzz~;
@@ -78,11 +78,11 @@
 #X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
--6 0 8 -2097 -1 -1 1800 1;
+-6 0 8 -2097 -1 -1 1200 1;
 #X obj 71 92 mknob 25 100 1 800 0 1 sd_delay_snd sd_delay_rcv D.Time
--2 -6 0 8 -262144 -1 -1 1100 1;
+-2 -6 0 8 -262144 -1 -1 2000 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
--2 -6 0 8 -262144 -1 -1 1000 1;
+-2 -6 0 8 -262144 -1 -1 3300 1;
 #X obj 332 124 r sd_delay_snd;
 #X obj 332 153 r sd_fback_snd;
 #X obj 332 286 r sd_level_snd;
@@ -103,7 +103,7 @@
 #X connect 15 0 2 0;
 #X connect 15 1 2 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 369 pd Delay;
+#X restore 101 454 pd Delay;
 #X obj 131 107 tuner;
 #X text 447 115 <-- Switch audio on to tune up.;
 #X msg 225 31 40 45 50 55 59 64;
@@ -120,10 +120,10 @@
 #X text 129 265 Dry path -->;
 #X obj 272 12 inlet;
 #X text 257 265 <-- Wet path;
-#X obj 125 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 125 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 rev_level_snd rev_level_rcv Level
--2 -6 0 8 -2097 -1 -1 3800 1;
+-2 -6 0 8 -2097 -1 -1 700 1;
 #X obj 68 92 mknob 25 100 0 1 0 1 rev_roomsize_snd rev_roomsize_rcv
 R.Size -2 -6 0 8 -262144 -1 -1 3800 1;
 #X obj 107 92 mknob 25 100 0 1 0 1 rev_damping_snd rev_damping_rcv
@@ -147,7 +147,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 15 0 0 2;
 #X connect 16 0 12 2;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 454 pd Reverb;
+#X restore 101 539 pd Reverb;
 #N canvas 357 224 515 612 Phaser 0;
 #X obj 27 53 cnv 15 149 70 empty empty Phaser 7 8 0 14 -118080 -66577
 0;
@@ -159,7 +159,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 ph_level_snd ph_level_rcv Level -2
--6 0 8 -2097 -1 -1 6600 1;
+-6 0 8 -2097 -1 -1 1000 1;
 #X obj 68 92 mknob 25 100 0 10 0 1 ph_speed_snd ph_speed_rcv Speed
 -2 -6 0 8 -262144 -1 -1 3100 1;
 #X obj 107 92 mknob 25 100 0 3 0 1 ph_depth_snd ph_depth_rcv Depth
@@ -189,6 +189,48 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 18 0 11 1;
 #X coords 0 -1 1 1 155 76 1 24 50;
 #X restore 101 284 pd Phaser;
+#N canvas 357 224 830 612 Tremolo 0;
+#X obj 27 53 cnv 15 149 70 empty empty Tremolo 7 8 0 14 -118763 -66577
+0;
+#X obj 211 12 inlet~;
+#X obj 211 372 outlet~;
+#X text 129 265 Dry path -->;
+#X obj 272 12 inlet;
+#X text 261 265 <-- Wet path;
+#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 92 mknob 25 100 0 1 0 1 tm_level_snd tm_level_rcv Level -2
+-6 0 8 -2097 -1 -1 300 1;
+#X obj 68 92 mknob 25 100 0.5 25 0 1 tm_rate_snd tm_rate_rcv Rate -2
+-6 0 8 -262144 -1 -1 2600 1;
+#X obj 107 92 mknob 25 100 1 20 1 0 tm_shape_snd tm_shape_rcv Shape
+-2 -6 0 8 -262144 -1 -1 7100 1;
+#X obj 211 97 Effect_AB_Switch~;
+#X obj 211 326 Wet_Dry_Mix~;
+#X text 327 422 Igor Mircic 2017;
+#X obj 147 92 mknob 25 100 0 0.5 0 1 tm_depth_snd tm_depth_rcv Depth
+-2 -6 0 8 -262144 -1 -1 6600 1;
+#X obj 260 225 Tremolo~;
+#X obj 331 124 r tm_rate_snd;
+#X obj 331 148 r tm_shape_snd;
+#X obj 331 172 r tm_depth_snd;
+#X text 419 124 <-- Frequency of the oscillator ("Rate");
+#X text 424 148 <-- Number X (between 1 and 20 \, log) ("Shape");
+#X obj 331 286 r tm_level_snd;
+#X connect 1 0 10 0;
+#X connect 4 0 6 0;
+#X connect 6 0 10 1;
+#X connect 10 0 11 0;
+#X connect 10 1 14 0;
+#X connect 11 0 2 0;
+#X connect 11 1 2 0;
+#X connect 14 0 11 1;
+#X connect 15 0 14 1;
+#X connect 16 0 14 2;
+#X connect 17 0 14 3;
+#X connect 20 0 11 2;
+#X coords 0 -1 1 1 155 76 1 24 50;
+#X restore 101 369 pd Tremolo;
 #X connect 3 0 14 0;
 #X connect 4 0 6 0;
 #X connect 4 0 3 0;
@@ -197,4 +239,5 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 11 0 6 1;
 #X connect 13 0 0 0;
 #X connect 13 0 0 1;
-#X connect 14 0 5 0;
+#X connect 14 0 15 0;
+#X connect 15 0 5 0;

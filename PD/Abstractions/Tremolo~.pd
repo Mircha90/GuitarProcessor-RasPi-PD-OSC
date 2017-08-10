@@ -1,0 +1,34 @@
+#N canvas 1118 332 640 470 10;
+#X obj 74 -129 osc~;
+#X obj 74 -23 *~;
+#X obj 74 28 clip~ -1 1;
+#X obj 18 137 *~;
+#X text 106 -129 <-- Sine wave (between -1 and 1);
+#X obj 74 84 *~;
+#X obj 74 110 +~;
+#X obj 174 81 expr 1-$f1;
+#X obj 18 -183 inlet~;
+#X obj 18 219 outlet~;
+#X obj 74 -183 inlet;
+#X obj 124 -183 inlet;
+#X obj 174 -183 inlet;
+#X text 101 -23 <-- Multipled by a positive number X \, (between -X
+and X), f 66;
+#X text 144 28 <-- Trim at -1 and 1 \, (the sine wave tends to become
+a square wave as X increases), f 50;
+#X text 244 81 <-- Normalize between 0 and 1 and adjust depth;
+#X text 210 209 Patch by Pierre Massat \, GuitarExtended \, 2012 (based
+on a suggestion by "mod" \, Pure Data forum \, 2011) \, modified by
+Igor Mircic;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 1;
+#X connect 7 0 6 1;
+#X connect 8 0 3 0;
+#X connect 10 0 0 0;
+#X connect 11 0 1 1;
+#X connect 12 0 5 1;
+#X connect 12 0 7 0;
