@@ -37,7 +37,7 @@
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_volume_snd sf_volume_rcv Gain
 -2 -6 0 8 -262144 -1 -1 7900 1;
@@ -46,7 +46,7 @@
 #X obj 335 126 r sf_volume_snd;
 #X obj 335 155 r sf_fuzz_snd;
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
--6 0 8 -2097 -1 -1 2400 1;
+-6 0 8 -2097 -1 -1 4100 1;
 #X obj 335 267 r sf_level_snd;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 258 204 Simple_Fuzz~;
@@ -75,10 +75,10 @@
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
--6 0 8 -2097 -1 -1 3100 1;
+-6 0 8 -2097 -1 -1 2000 1;
 #X obj 71 92 mknob 25 100 1 800 0 1 sd_delay_snd sd_delay_rcv D.Time
 -2 -6 0 8 -262144 -1 -1 2000 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
@@ -120,10 +120,10 @@
 #X text 129 265 Dry path -->;
 #X obj 272 12 inlet;
 #X text 257 265 <-- Wet path;
-#X obj 125 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 125 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 rev_level_snd rev_level_rcv Level
--2 -6 0 8 -2097 -1 -1 2600 1;
+-2 -6 0 8 -2097 -1 -1 2300 1;
 #X obj 68 92 mknob 25 100 0 1 0 1 rev_roomsize_snd rev_roomsize_rcv
 R.Size -2 -6 0 8 -262144 -1 -1 3800 1;
 #X obj 107 92 mknob 25 100 0 1 0 1 rev_damping_snd rev_damping_rcv
@@ -156,10 +156,10 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X text 129 265 Dry path -->;
 #X obj 272 12 inlet;
 #X text 261 265 <-- Wet path;
-#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 ph_level_snd ph_level_rcv Level -2
--6 0 8 -2097 -1 -1 6500 1;
+-6 0 8 -2097 -1 -1 2800 1;
 #X obj 68 92 mknob 25 100 0 10 0 1 ph_speed_snd ph_speed_rcv Speed
 -2 -6 0 8 -262144 -1 -1 3100 1;
 #X obj 107 92 mknob 25 100 0 3 0 1 ph_depth_snd ph_depth_rcv Depth
@@ -197,14 +197,14 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X text 129 265 Dry path -->;
 #X obj 272 12 inlet;
 #X text 261 265 <-- Wet path;
-#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 161 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 tm_level_snd tm_level_rcv Level -2
--6 0 8 -2097 -1 -1 3900 1;
+-6 0 8 -2097 -1 -1 6000 1;
 #X obj 68 92 mknob 25 100 0.5 25 0 1 tm_rate_snd tm_rate_rcv Rate -2
 -6 0 8 -262144 -1 -1 2600 1;
 #X obj 107 92 mknob 25 100 1 20 1 0 tm_shape_snd tm_shape_rcv Shape
--2 -6 0 8 -262144 -1 -1 5300 1;
+-2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 211 97 Effect_AB_Switch~;
 #X obj 211 326 Wet_Dry_Mix~;
 #X text 327 422 Igor Mircic 2017;
@@ -240,10 +240,10 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X text 130 265 Dry path -->;
 #X obj 273 12 inlet;
 #X text 258 265 <-- Wet path;
-#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 126 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 vi_level_snd vi_level_rcv Level -2
--6 0 8 -2097 -1 -1 1800 1;
+-6 0 8 -2097 -1 -1 1600 1;
 #X obj 71 92 mknob 25 100 1 5 0 1 vi_speed_snd vi_speed_rcv Speed -2
 -6 0 8 -262144 -1 -1 2300 1;
 #X obj 111 92 mknob 25 100 1 5 0 1 vi_depth_snd vi_depth_rcv Depth
@@ -271,7 +271,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X connect 16 0 13 2;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 454 pd Vibrato;
-#N canvas 227 260 830 612 WahAuto 0;
+#N canvas 446 201 830 612 WahAuto 0;
 #X obj 27 53 cnv 15 190 70 empty empty WahAuto 7 8 0 14 -261597 -66577
 0;
 #X obj 261 12 inlet~;
@@ -279,27 +279,29 @@ D.Level -2 -6 0 8 -262144 -1 -1 4200 1;
 #X text 179 265 Dry path -->;
 #X obj 322 12 inlet;
 #X text 311 265 <-- Wet path;
-#X obj 202 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 202 53 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 wa_level_snd wa_level_rcv Level -2
--6 0 8 -2097 -1 -1 7100 1;
+-6 0 8 -2097 -1 -1 7000 1;
 #X obj 68 92 mknob 25 100 0.5 4 0 1 wa_rate_snd wa_rate_rcv Rate -2
--6 0 8 -262144 -1 -1 7000 1;
+-6 0 8 -262144 -1 -1 3700 1;
 #X obj 147 92 mknob 25 100 0 700 0 0 wa_freqmin_snd wa_freqmin_rcv
-F.Min -2 -6 0 8 -262144 -1 -1 3400 1;
+F.Min -2 -6 0 8 -262144 -1 -1 6600 1;
 #X obj 261 97 Effect_AB_Switch~;
 #X obj 261 326 Wet_Dry_Mix~;
 #X text 377 422 Igor Mircic 2017;
 #X obj 107 92 mknob 25 100 700 6000 0 1 wa_freqmax_snd wa_freqmax_rcv
-F.Max -2 -6 0 8 -262144 -1 -1 3400 1;
+F.Max -2 -6 0 8 -262144 -1 -1 8600 1;
 #X obj 187 92 mknob 25 100 0 20 0 1 wa_q_snd wa_q_rcv Q -2 -6 0 8 -262144
--1 -1 4600 1;
+-1 -1 4900 1;
 #X obj 311 212 WahAuto~;
 #X obj 381 286 r wa_level_snd;
 #X obj 413 103 r wa_rate_snd;
 #X obj 413 147 r wa_freqmin_snd;
 #X obj 413 125 r wa_freqmax_snd;
 #X obj 413 169 r wa_q_snd;
+#X text 518 125 <-- Maximum of the freq. range;
+#X text 518 147 <-- Minimum of the freq. range;
 #X connect 1 0 10 0;
 #X connect 4 0 6 0;
 #X connect 6 0 10 1;
