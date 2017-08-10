@@ -20,6 +20,9 @@ a square wave as X increases), f 50;
 #X text 210 209 Patch by Pierre Massat \, GuitarExtended \, 2012 (based
 on a suggestion by "mod" \, Pure Data forum \, 2011) \, modified by
 Igor Mircic;
+#X obj 246 -156 switch~;
+#X obj 246 -183 inlet;
+#X text 287 -183 <-- Turns audio computation On/Off;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 5 0;
@@ -32,3 +35,4 @@ Igor Mircic;
 #X connect 11 0 1 1;
 #X connect 12 0 5 1;
 #X connect 12 0 7 0;
+#X connect 18 0 17 0;
