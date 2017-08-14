@@ -1,7 +1,7 @@
-#N canvas 1940 -215 643 993 10;
+#N canvas 622 0 643 970 10;
 #X obj 101 794 dac~, f 5;
 #X obj 2 -27 pddp/dsp;
-#N canvas 2507 -215 1122 970 OSC 1;
+#N canvas 2507 0 1122 970 OSC 0;
 #X obj -31 130 cnv 15 487 251 empty empty Tuner 20 20 0 14 -262144
 -66577 0;
 #X obj -35 393 cnv 15 494 281 empty empty Fuzz 20 20 0 14 -260956 -66577
@@ -337,29 +337,30 @@
 #X connect 175 0 176 0;
 #X connect 176 0 168 0;
 #X restore 136 -25 pd OSC;
-#N canvas 834 273 580 592 Fuzz 0;
+#N canvas 2461 59 580 592 Fuzz 0;
 #X obj 27 53 cnv 15 114 70 empty empty Fuzz 8 8 0 14 -243521 -66577
 0;
-#X obj 212 12 inlet~;
+#X obj 212 8 inlet~;
 #X obj 212 372 outlet~;
 #X text 130 265 Dry path -->;
-#X obj 273 12 inlet;
+#X obj 273 8 inlet;
 #X text 258 265 <-- Wet path;
 #X obj 126 53 tgl 15 1 sf_on_snd sf_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_gain_snd sf_gain_rcv Gain -2
 -6 0 8 -262144 -1 -1 5014 1;
 #X obj 113 93 mknob 25 100 1 0.2 0 1 sf_fuzz_snd sf_fuzz_rcv Fuzz -2
--6 0 8 -262144 -1 -1 9900 1;
+-6 0 8 -262144 -1 -1 6800 1;
 #X obj 335 126 r sf_volume_snd;
 #X obj 335 155 r sf_fuzz_snd;
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
--6 0 8 -262144 -1 -1 5005 1;
+-6 0 8 -262144 -1 -1 3105 1;
 #X obj 335 267 r sf_level_snd;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 258 204 Simple_Fuzz~;
 #X obj 212 325 Wet_Dry_Mix~;
 #X text 326 422 Igor Mircic 2017;
+#X obj 30 8 loadbang;
 #X connect 1 0 13 0;
 #X connect 4 0 6 0;
 #X connect 6 0 13 1;
@@ -372,21 +373,25 @@
 #X connect 14 0 15 1;
 #X connect 15 0 2 0;
 #X connect 15 1 2 0;
+#X connect 17 0 11 0;
+#X connect 17 0 7 0;
+#X connect 17 0 8 0;
+#X connect 17 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 199 pd Fuzz;
 #X obj 101 53 adc~ 1;
-#N canvas 2432 0 727 773 Delay 0;
+#N canvas 580 87 727 796 Delay 0;
 #X obj 27 53 cnv 15 114 70 empty empty Delay 8 8 0 14 -174059 -66577
 0;
-#X obj 212 12 inlet~;
+#X obj 212 8 inlet~;
 #X obj 212 372 outlet~;
 #X text 130 265 Dry path -->;
-#X obj 273 12 inlet;
+#X obj 273 8 inlet;
 #X text 258 265 <-- Wet path;
 #X obj 126 53 tgl 15 1 sd_on_snd sd_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
--6 0 8 -2097 -1 -1 6105 1;
+-6 0 8 -262144 -1 -1 3805 1;
 #X obj 71 92 mknob 25 100 1 800 0 1 sd_delay_snd sd_delay_rcv D.Time
 -2 -6 0 8 -262144 -1 -1 7925 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
@@ -398,6 +403,7 @@
 #X obj 259 207 Simple_Delay~;
 #X obj 212 326 Wet_Dry_Mix~;
 #X text 328 422 Igor Mircic 2017;
+#X obj 30 8 loadbang;
 #X connect 1 0 13 0;
 #X connect 4 0 6 0;
 #X connect 6 0 13 1;
@@ -410,6 +416,10 @@
 #X connect 14 0 15 1;
 #X connect 15 0 2 0;
 #X connect 15 1 2 0;
+#X connect 17 0 7 0;
+#X connect 17 0 8 0;
+#X connect 17 0 9 0;
+#X connect 17 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 624 pd Delay;
 #X obj 131 107 tuner;
@@ -419,29 +429,30 @@
 #X text 336 51 <-- Open-G tuning (D \, G \, D \, G \, B \, D);
 #X msg 225 53 38 43 50 55 59 62;
 #X text 515 803 Igor Mircic 2017;
-#N canvas 2218 0 515 681 Reverb 0;
+#N canvas 1119 54 515 704 Reverb 0;
 #X obj 260 192 Reverb~;
 #X obj 27 53 cnv 15 114 70 empty empty Reverb 7 8 0 14 -256520 -66577
 0;
-#X obj 211 12 inlet~;
+#X obj 211 13 inlet~;
 #X obj 211 372 outlet~;
 #X text 129 265 Dry path -->;
-#X obj 272 12 inlet;
+#X obj 272 13 inlet;
 #X text 257 265 <-- Wet path;
 #X obj 125 53 tgl 15 1 rev_on_snd rev_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 rev_level_snd rev_level_rcv Level
--2 -6 0 8 -2097 -1 -1 9900 1;
+-2 -6 0 8 -262144 -1 -1 3300 1;
 #X obj 68 92 mknob 25 100 0 1 0 1 rev_roomsize_snd rev_roomsize_rcv
 R.Size -2 -6 0 8 -262144 -1 -1 3132 1;
 #X obj 107 92 mknob 25 100 0 1 0 1 rev_damping_snd rev_damping_rcv
-D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
+D.Level -2 -6 0 8 -262144 -1 -1 6700 1;
 #X obj 211 97 Effect_AB_Switch~;
 #X obj 211 326 Wet_Dry_Mix~;
 #X text 327 422 Igor Mircic 2017;
 #X obj 331 124 r rev_roomsize_snd;
 #X obj 331 153 r rev_damping_snd;
 #X obj 331 286 r rev_level_snd;
+#X obj 28 13 loadbang;
 #X connect 0 0 12 1;
 #X connect 2 0 11 0;
 #X connect 5 0 7 0;
@@ -454,20 +465,24 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X connect 14 0 0 1;
 #X connect 15 0 0 2;
 #X connect 16 0 12 2;
+#X connect 17 0 8 0;
+#X connect 17 0 9 0;
+#X connect 17 0 10 0;
+#X connect 17 0 7 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 709 pd Reverb;
-#N canvas 676 183 515 681 Phaser 0;
+#N canvas 2351 58 515 681 Phaser 0;
 #X obj 27 53 cnv 15 149 70 empty empty Phaser 7 8 0 14 -187246 -66577
 0;
-#X obj 211 12 inlet~;
+#X obj 211 9 inlet~;
 #X obj 211 372 outlet~;
 #X text 129 265 Dry path -->;
-#X obj 272 12 inlet;
+#X obj 272 9 inlet;
 #X text 261 265 <-- Wet path;
 #X obj 161 53 tgl 15 1 ph_on_snd ph_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 ph_level_snd ph_level_rcv Level -2
--6 0 8 -262144 -1 -1 5461 1;
+-6 0 8 -262144 -1 -1 3461 1;
 #X obj 68 92 mknob 25 100 0 10 0 1 ph_speed_snd ph_speed_rcv Speed
 -2 -6 0 8 -262144 -1 -1 4135 1;
 #X obj 107 92 mknob 25 100 0 3 0 1 ph_depth_snd ph_depth_rcv Depth
@@ -482,6 +497,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X obj 331 148 r ph_depth_snd;
 #X obj 331 172 r ph_fback_snd;
 #X obj 260 226 Phaser~;
+#X obj 29 9 loadbang;
 #X connect 1 0 10 0;
 #X connect 4 0 6 0;
 #X connect 6 0 10 1;
@@ -495,20 +511,25 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X connect 16 0 18 2;
 #X connect 17 0 18 3;
 #X connect 18 0 11 1;
+#X connect 19 0 7 0;
+#X connect 19 0 8 0;
+#X connect 19 0 9 0;
+#X connect 19 0 13 0;
+#X connect 19 0 6 0;
 #X coords 0 -1 1 1 155 76 1 24 50;
 #X restore 101 284 pd Phaser;
-#N canvas 2081 0 830 681 Tremolo 0;
+#N canvas 2154 80 830 681 Tremolo 0;
 #X obj 27 53 cnv 15 149 70 empty empty Tremolo 7 8 0 14 -118763 -66577
 0;
-#X obj 211 12 inlet~;
+#X obj 211 11 inlet~;
 #X obj 211 372 outlet~;
 #X text 129 265 Dry path -->;
-#X obj 272 12 inlet;
+#X obj 272 11 inlet;
 #X text 261 265 <-- Wet path;
 #X obj 161 53 tgl 15 1 tm_on_snd tm_on_rcv empty 17 7 0 10 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 tm_level_snd tm_level_rcv Level -2
--6 0 8 -262144 -1 -1 7880 1;
+-6 0 8 -262144 -1 -1 3280 1;
 #X obj 68 92 mknob 25 100 0.5 25 0 1 tm_rate_snd tm_rate_rcv Rate -2
 -6 0 8 -262144 -1 -1 4297 1;
 #X obj 107 92 mknob 25 100 1 20 1 0 tm_shape_snd tm_shape_rcv Shape
@@ -525,6 +546,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X text 419 124 <-- Frequency of the oscillator ("Rate");
 #X text 424 148 <-- Number X (between 1 and 20 \, log) ("Shape");
 #X obj 331 286 r tm_level_snd;
+#X obj 29 11 loadbang;
 #X connect 1 0 10 0;
 #X connect 4 0 6 0;
 #X connect 6 0 10 1;
@@ -538,20 +560,25 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X connect 16 0 14 2;
 #X connect 17 0 14 3;
 #X connect 20 0 11 2;
+#X connect 21 0 7 0;
+#X connect 21 0 8 0;
+#X connect 21 0 9 0;
+#X connect 21 0 13 0;
+#X connect 21 0 6 0;
 #X coords 0 -1 1 1 155 76 1 24 50;
 #X restore 101 369 pd Tremolo;
-#N canvas 1994 10 727 675 Vibrato 0;
+#N canvas 2206 0 727 675 Vibrato 0;
 #X obj 27 53 cnv 15 114 70 empty empty Vibrato 8 8 0 14 -126910 -66577
 0;
-#X obj 212 12 inlet~;
+#X obj 212 11 inlet~;
 #X obj 212 372 outlet~;
 #X text 130 265 Dry path -->;
-#X obj 273 12 inlet;
+#X obj 273 11 inlet;
 #X text 258 265 <-- Wet path;
 #X obj 126 53 tgl 15 1 vi_on_snd vi_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 vi_level_snd vi_level_rcv Level -2
--6 0 8 -262144 -1 -1 5948 1;
+-6 0 8 -262144 -1 -1 3848 1;
 #X obj 71 92 mknob 25 100 1 5 0 1 vi_speed_snd vi_speed_rcv Speed -2
 -6 0 8 -262144 -1 -1 9900 1;
 #X obj 111 92 mknob 25 100 1 5 0 1 vi_depth_snd vi_depth_rcv Depth
@@ -565,6 +592,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X obj 332 153 r vi_depth_snd;
 #X text 425 124 <-- Speed (frequency of the LFO);
 #X text 424 152 <-- Depth (change the length of the delay line);
+#X obj 31 11 loadbang;
 #X connect 1 0 10 0;
 #X connect 4 0 6 0;
 #X connect 6 0 10 1;
@@ -577,20 +605,24 @@ D.Level -2 -6 0 8 -262144 -1 -1 4360 1;
 #X connect 14 0 11 2;
 #X connect 15 0 13 1;
 #X connect 16 0 13 2;
+#X connect 19 0 7 0;
+#X connect 19 0 8 0;
+#X connect 19 0 9 0;
+#X connect 19 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
 #X restore 101 454 pd Vibrato;
-#N canvas 1090 29 830 681 WahAuto 0;
+#N canvas 2125 0 830 719 WahAuto 0;
 #X obj 27 53 cnv 15 190 70 empty empty WahAuto 7 8 0 14 -261597 -66577
 0;
-#X obj 261 12 inlet~;
+#X obj 261 9 inlet~;
 #X obj 261 372 outlet~;
 #X text 179 265 Dry path -->;
-#X obj 322 12 inlet;
+#X obj 322 9 inlet;
 #X text 311 265 <-- Wet path;
 #X obj 202 53 tgl 15 1 wa_on_snd wa_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 wa_level_snd wa_level_rcv Level -2
--6 0 8 -262144 -1 -1 7165 1;
+-6 0 8 -262144 -1 -1 3465 1;
 #X obj 68 92 mknob 25 100 0.5 4 0 1 wa_rate_snd wa_rate_rcv Rate -2
 -6 0 8 -262144 -1 -1 7595 1;
 #X obj 147 92 mknob 25 100 0 700 0 0 wa_freqmin_snd wa_freqmin_rcv
@@ -610,6 +642,7 @@ F.Max -2 -6 0 8 -262144 -1 -1 2607 1;
 #X obj 413 169 r wa_q_snd;
 #X text 518 125 <-- Maximum of the freq. range;
 #X text 518 147 <-- Minimum of the freq. range;
+#X obj 29 9 loadbang;
 #X connect 1 0 10 0;
 #X connect 4 0 6 0;
 #X connect 6 0 10 1;
@@ -624,6 +657,12 @@ F.Max -2 -6 0 8 -262144 -1 -1 2607 1;
 #X connect 18 0 15 3;
 #X connect 19 0 15 2;
 #X connect 20 0 15 4;
+#X connect 23 0 7 0;
+#X connect 23 0 8 0;
+#X connect 23 0 13 0;
+#X connect 23 0 9 0;
+#X connect 23 0 14 0;
+#X connect 23 0 6 0;
 #X coords 0 -1 1 1 197 76 1 24 50;
 #X restore 101 539 pd WahAuto;
 #X text 182 -26 <-- Subpatch for routing OSC massages;

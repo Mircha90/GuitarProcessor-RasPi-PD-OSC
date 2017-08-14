@@ -1,4 +1,4 @@
-#N canvas 1963 0 941 798 10;
+#N canvas 2164 -62 941 798 10;
 #X obj 58 383 route 0;
 #X obj 58 295 *~ 5;
 #X obj 105 143 hsl 300 15 -1 1 0 0 empty cursor_tuner empty -2 -8 0
@@ -11,11 +11,11 @@
 #X restore 105 131 graph;
 #X floatatom 237 158 7 0 0 0 - - -, f 7;
 #X obj 168 243 loadbang;
-#X obj 373 101 tgl 30 0 tuner_on_snd tuner_on_rcv empty 17 7 0 10 -262144
+#X obj 372 101 tgl 30 0 tuner_on_snd tuner_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 475 220 switch~;
-#X obj 402 17 loadbang;
-#X msg 395 61 0;
+#X obj 104 17 loadbang;
+#X msg 372 66 0;
 #X text 250 110 |;
 #X obj 467 402 s String1;
 #X obj 527 402 s String2;
@@ -44,8 +44,8 @@
 #X msg 778 163 A;
 #X msg 834 163 B;
 #X obj 633 215 symbol;
-#X obj 289 106 cnv 15 65 20 empty Note_name E 5 10 0 14 -4034 -1 0
-;
+#X obj 289 106 cnv 15 65 20 empty Note_name Note 5 10 0 14 -4034 -1
+0;
 #X msg 633 235 \; Note_name label \$1 \;;
 #X obj 458 530 IdentifyNote;
 #X obj 335 661 s midi_to_letter;
@@ -82,6 +82,7 @@ tuning);
 #X connect 6 0 26 0;
 #X connect 7 0 8 0;
 #X connect 9 0 10 0;
+#X connect 9 0 2 0;
 #X connect 10 0 7 0;
 #X connect 18 0 53 1;
 #X connect 19 0 54 1;
