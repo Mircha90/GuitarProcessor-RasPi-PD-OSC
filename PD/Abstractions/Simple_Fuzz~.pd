@@ -1,4 +1,4 @@
-#N canvas 1031 275 618 520 10;
+#N canvas 1031 275 535 498 10;
 #X obj 17 128 *~ 40;
 #X text 111 293 <-- Hard-clip it to produce audible distortion;
 #X obj 17 294 clip~ -0.5 0.5;

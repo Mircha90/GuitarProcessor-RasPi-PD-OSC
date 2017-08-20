@@ -1,7 +1,7 @@
-#N canvas 622 0 643 970 10;
-#X obj 101 794 dac~, f 5;
+#N canvas 0 1 571 992 10;
+#X obj 11 764 dac~, f 5;
 #X obj 2 -27 pddp/dsp;
-#N canvas 2507 0 1122 970 OSC 0;
+#N canvas 521 1 1122 993 OSC 0;
 #X obj -31 130 cnv 15 487 251 empty empty Tuner 20 20 0 14 -262144
 -66577 0;
 #X obj -35 393 cnv 15 494 281 empty empty Fuzz 20 20 0 14 -260956 -66577
@@ -169,7 +169,6 @@
 #X obj 405 2296 r rev_on_snd;
 #X msg 404 2329 send /7/rev_on \$1;
 #X obj -39 2 loadbang;
-#X msg -39 42 connect 192.168.1.3 9000;
 #X text 122 40 <-- IP/Port of Android phone;
 #X text 424 40 <-- Port for reciving OSC messages;
 #X obj 496 1649 routeOSC /wa_q;
@@ -187,6 +186,7 @@
 #X obj -4 253 s tuner_on_rcv;
 #X obj -4 284 r tuner_on_snd;
 #X msg -4 315 send /8/tuner_on \$1;
+#X msg -39 42 connect 192.168.1.3 9000;
 #X connect 2 0 21 0;
 #X connect 3 0 2 0;
 #X connect 4 0 8 0;
@@ -272,7 +272,7 @@
 #X connect 97 0 106 0;
 #X connect 97 0 110 0;
 #X connect 97 0 114 0;
-#X connect 97 0 162 0;
+#X connect 97 0 161 0;
 #X connect 98 0 99 0;
 #X connect 100 0 101 0;
 #X connect 101 0 96 0;
@@ -322,22 +322,22 @@
 #X connect 154 0 155 0;
 #X connect 156 0 157 0;
 #X connect 157 0 140 0;
-#X connect 158 0 159 0;
-#X connect 159 0 5 0;
-#X connect 162 0 163 0;
-#X connect 164 0 165 0;
-#X connect 165 0 96 0;
+#X connect 158 0 176 0;
+#X connect 161 0 162 0;
+#X connect 163 0 164 0;
+#X connect 164 0 96 0;
+#X connect 165 0 166 0;
 #X connect 166 0 167 0;
-#X connect 167 0 168 0;
+#X connect 168 0 167 0;
 #X connect 169 0 168 0;
-#X connect 170 0 169 0;
+#X connect 170 0 172 0;
 #X connect 171 0 173 0;
-#X connect 172 0 174 0;
-#X connect 173 0 172 0;
-#X connect 175 0 176 0;
-#X connect 176 0 168 0;
+#X connect 172 0 171 0;
+#X connect 174 0 175 0;
+#X connect 175 0 167 0;
+#X connect 176 0 5 0;
 #X restore 136 -25 pd OSC;
-#N canvas 789 133 580 662 Fuzz 0;
+#N canvas 826 0 1069 1000 Fuzz 0;
 #X obj 27 53 cnv 15 114 70 empty empty Fuzz 8 8 0 14 -243521 -66577
 0;
 #X obj 212 8 inlet~;
@@ -346,15 +346,15 @@
 #X obj 273 8 inlet;
 #X text 258 265 <-- Wet path;
 #X obj 126 53 tgl 15 1 sf_on_snd sf_on_rcv empty 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 72 93 mknob 25 100 1 100 0 1 sf_gain_snd sf_gain_rcv Gain -2
--6 0 8 -262144 -1 -1 4457 1;
+-6 0 8 -262144 -1 -1 7905 1;
 #X obj 113 93 mknob 25 100 1 0.2 0 1 sf_fuzz_snd sf_fuzz_rcv Fuzz -2
--6 0 8 -262144 -1 -1 5873 1;
+-6 0 8 -262144 -1 -1 7180 1;
 #X obj 335 126 r sf_volume_snd;
 #X obj 335 155 r sf_fuzz_snd;
 #X obj 31 93 mknob 25 100 0 1 0 1 sf_level_snd sf_level_rcv Level -2
--6 0 8 -262144 -1 -1 3765 1;
+-6 0 8 -262144 -1 -1 1869 1;
 #X obj 335 267 r sf_level_snd;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 258 204 Simple_Fuzz~;
@@ -385,9 +385,9 @@
 #X connect 17 0 6 0;
 #X connect 19 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 199 pd Fuzz;
-#X obj 101 53 adc~ 1;
-#N canvas 1029 41 727 796 Delay 0;
+#X restore 11 169 pd Fuzz;
+#X obj 11 23 adc~ 1;
+#N canvas 605 52 727 842 Delay 0;
 #X obj 27 53 cnv 15 114 70 empty empty Delay 8 8 0 14 -174059 -66577
 0;
 #X obj 212 8 inlet~;
@@ -398,11 +398,11 @@
 #X obj 126 53 tgl 15 1 sd_on_snd sd_on_rcv empty 17 7 0 10 -262144
 -1 -1 1 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 sd_level_snd sd_level_rcv Level -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 2200 1;
 #X obj 71 92 mknob 25 100 1 800 0 1 sd_delay_snd sd_delay_rcv D.Time
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 2885 1;
 #X obj 111 92 mknob 25 100 0 0.9 0 1 sd_fback_snd sd_fback_rcv F.Back
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 2100 1;
 #X obj 332 124 r sd_delay_snd;
 #X obj 332 153 r sd_fback_snd;
 #X obj 332 286 r sd_level_snd;
@@ -434,14 +434,14 @@
 #X connect 17 0 6 0;
 #X connect 19 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 624 pd Delay;
-#X obj 131 107 tuner;
-#X text 447 115 <-- Switch audio on to tune up.;
-#X msg 225 31 40 45 50 55 59 64;
-#X text 336 30 <-- Standard tuning (E \, A \, D \, G \, B \, E);
-#X text 336 51 <-- Open-G tuning (D \, G \, D \, G \, B \, D);
-#X msg 225 53 38 43 50 55 59 62;
-#X text 515 803 Igor Mircic 2017;
+#X restore 11 594 pd Delay;
+#X obj 41 77 tuner;
+#X text 357 85 <-- Switch audio on to tune up.;
+#X msg 135 1 40 45 50 55 59 64;
+#X text 246 0 <-- Standard tuning (E \, A \, D \, G \, B \, E);
+#X text 246 21 <-- Open-G tuning (D \, G \, D \, G \, B \, D);
+#X msg 135 23 38 43 50 55 59 62;
+#X text 207 805 Igor Mircic 2017;
 #N canvas 1119 54 515 704 Reverb 0;
 #X obj 260 192 Reverb~;
 #X obj 27 53 cnv 15 114 70 empty empty Reverb 7 8 0 14 -256520 -66577
@@ -454,11 +454,11 @@
 #X obj 125 53 tgl 15 1 rev_on_snd rev_on_rcv empty 17 7 0 10 -262144
 -1 -1 1 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 rev_level_snd rev_level_rcv Level
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 2400 1;
 #X obj 68 92 mknob 25 100 0 1 0 1 rev_roomsize_snd rev_roomsize_rcv
-R.Size -2 -6 0 8 -262144 -1 -1 0 1;
+R.Size -2 -6 0 8 -262144 -1 -1 4400 1;
 #X obj 107 92 mknob 25 100 0 1 0 1 rev_damping_snd rev_damping_rcv
-D.Level -2 -6 0 8 -262144 -1 -1 0 1;
+D.Level -2 -6 0 8 -262144 -1 -1 3800 1;
 #X obj 211 97 Effect_AB_Switch~;
 #X obj 211 326 Wet_Dry_Mix~;
 #X text 327 422 Igor Mircic 2017;
@@ -489,7 +489,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X connect 17 0 7 0;
 #X connect 19 0 7 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 709 pd Reverb;
+#X restore 11 679 pd Reverb;
 #N canvas 1152 185 515 681 Phaser 0;
 #X obj 27 53 cnv 15 149 70 empty empty Phaser 7 8 0 14 -187246 -66577
 0;
@@ -501,16 +501,16 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 161 53 tgl 15 1 ph_on_snd ph_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 ph_level_snd ph_level_rcv Level -2
--6 0 8 -262144 -1 -1 9900 1;
+-6 0 8 -262144 -1 -1 4000 1;
 #X obj 68 92 mknob 25 100 0 10 0 1 ph_speed_snd ph_speed_rcv Speed
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 3800 1;
 #X obj 107 92 mknob 25 100 0 3 0 1 ph_depth_snd ph_depth_rcv Depth
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 2200 1;
 #X obj 211 97 Effect_AB_Switch~;
 #X obj 211 326 Wet_Dry_Mix~;
 #X text 327 422 Igor Mircic 2017;
 #X obj 147 92 mknob 25 100 -0.9 0.9 0 1 ph_fback_snd ph_fback_rcv F.Back
--2 -6 0 8 -262144 -1 -1 42 1;
+-2 -6 0 8 -262144 -1 -1 2542 1;
 #X obj 331 286 r ph_level_snd;
 #X obj 331 124 r ph_speed_snd;
 #X obj 331 148 r ph_depth_snd;
@@ -543,7 +543,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X connect 19 0 6 0;
 #X connect 21 0 6 0;
 #X coords 0 -1 1 1 155 76 1 24 50;
-#X restore 101 284 pd Phaser;
+#X restore 11 254 pd Phaser;
 #N canvas 1090 80 830 681 Tremolo 0;
 #X obj 27 53 cnv 15 149 70 empty empty Tremolo 7 8 0 14 -118763 -66577
 0;
@@ -553,18 +553,18 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 272 11 inlet;
 #X text 261 265 <-- Wet path;
 #X obj 161 53 tgl 15 1 tm_on_snd tm_on_rcv empty 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 tm_level_snd tm_level_rcv Level -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 2700 1;
 #X obj 68 92 mknob 25 100 0.5 25 0 1 tm_rate_snd tm_rate_rcv Rate -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 3200 1;
 #X obj 107 92 mknob 25 100 1 20 1 0 tm_shape_snd tm_shape_rcv Shape
 -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 211 97 Effect_AB_Switch~;
 #X obj 211 326 Wet_Dry_Mix~;
 #X text 327 422 Igor Mircic 2017;
 #X obj 147 92 mknob 25 100 0 0.5 0 1 tm_depth_snd tm_depth_rcv Depth
--2 -6 0 8 -262144 -1 -1 9900 1;
+-2 -6 0 8 -262144 -1 -1 3200 1;
 #X obj 260 225 Tremolo~;
 #X obj 331 124 r tm_rate_snd;
 #X obj 331 148 r tm_shape_snd;
@@ -599,7 +599,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X connect 21 0 6 0;
 #X connect 23 0 6 0;
 #X coords 0 -1 1 1 155 76 1 24 50;
-#X restore 101 369 pd Tremolo;
+#X restore 11 339 pd Tremolo;
 #N canvas 1073 125 727 675 Vibrato 0;
 #X obj 27 53 cnv 15 114 70 empty empty Vibrato 8 8 0 14 -126910 -66577
 0;
@@ -611,11 +611,11 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 126 53 tgl 15 1 vi_on_snd vi_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 31 92 mknob 25 100 0 1 0 1 vi_level_snd vi_level_rcv Level -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 2700 1;
 #X obj 71 92 mknob 25 100 1 5 0 1 vi_speed_snd vi_speed_rcv Speed -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 1700 1;
 #X obj 111 92 mknob 25 100 1 5 0 1 vi_depth_snd vi_depth_rcv Depth
--2 -6 0 8 -262144 -1 -1 0 1;
+-2 -6 0 8 -262144 -1 -1 2200 1;
 #X obj 212 97 Effect_AB_Switch~;
 #X obj 212 326 Wet_Dry_Mix~;
 #X text 328 422 Igor Mircic 2017;
@@ -649,7 +649,7 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X connect 19 0 6 0;
 #X connect 20 0 6 0;
 #X coords 0 -1 1 1 120 76 1 24 50;
-#X restore 101 454 pd Vibrato;
+#X restore 11 424 pd Vibrato;
 #N canvas 947 138 830 719 WahAuto 0;
 #X obj 27 53 cnv 15 190 70 empty empty WahAuto 7 8 0 14 -261597 -66577
 0;
@@ -661,18 +661,18 @@ D.Level -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 202 53 tgl 15 1 wa_on_snd wa_on_rcv empty 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 30 92 mknob 25 100 0 1 0 1 wa_level_snd wa_level_rcv Level -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 3700 1;
 #X obj 68 92 mknob 25 100 0.5 4 0 1 wa_rate_snd wa_rate_rcv Rate -2
--6 0 8 -262144 -1 -1 0 1;
+-6 0 8 -262144 -1 -1 5400 1;
 #X obj 147 92 mknob 25 100 0 700 0 0 wa_freqmin_snd wa_freqmin_rcv
 F.Min -2 -6 0 8 -262144 -1 -1 0 1;
 #X obj 261 97 Effect_AB_Switch~;
 #X obj 261 326 Wet_Dry_Mix~;
 #X text 377 422 Igor Mircic 2017;
 #X obj 107 92 mknob 25 100 700 6000 0 1 wa_freqmax_snd wa_freqmax_rcv
-F.Max -2 -6 0 8 -262144 -1 -1 0 1;
+F.Max -2 -6 0 8 -262144 -1 -1 2700 1;
 #X obj 187 92 mknob 25 100 0 20 0 1 wa_q_snd wa_q_rcv Q -2 -6 0 8 -262144
--1 -1 0 1;
+-1 -1 4000 1;
 #X obj 311 212 WahAuto~;
 #X obj 381 286 r wa_level_snd;
 #X obj 413 103 r wa_rate_snd;
@@ -711,7 +711,7 @@ F.Max -2 -6 0 8 -262144 -1 -1 0 1;
 #X connect 23 0 6 0;
 #X connect 25 0 6 0;
 #X coords 0 -1 1 1 197 76 1 24 50;
-#X restore 101 539 pd WahAuto;
+#X restore 11 509 pd WahAuto;
 #X text 182 -26 <-- Subpatch for routing OSC massages;
 #X connect 3 0 14 0;
 #X connect 4 0 6 0;
